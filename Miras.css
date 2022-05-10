@@ -1,0 +1,48 @@
+﻿
+body {
+    background-color: #ADD8E6;
+    font-family:sans-serif;
+}
+
+#main-container {
+    width: 65%;
+    margin: auto;
+    margin-top: 120px;
+}
+
+.navbar {
+    border: 1px;
+    border-radius: 30px 30px 0px 0px;
+}
+
+.container {
+    margin: 5px;
+}
+
+ul.navbar-nav {
+    margin: auto;
+}
+
+.nav-item {
+    margin-left: 40px;
+    margin-right: 20px;
+}
+
+.footer {
+    border: 1px;
+    border-radius: 0px 0px 30px 30px;
+    margin-bottom:100px;
+}
+
+.card {
+    border: 0px;
+    border-radius: 20px 0px 0px 20px;
+}
+
+
+.card img {
+    border: 0px;
+    border-radius: 20px 0px 0px 20px;
+}
+
+
