@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+          integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Iletisim</title>
+    <link rel="stylesheet" href="iletisim.css" />
+</head>
+<body>
+
+    <div id="main-container">
+
+        <div class="navbar navbar-expand-md navbar-dark bg-dark ">
+            <div class="container">
+
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="hakkımda.html" class="nav-link">
+                            <i class="fa-solid fa-house"></i> Hakkımda
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="EgitimBilgileri.html" class="nav-link">
+                            <i class="fa-solid fa-school"></i>  Eğitim Bilgileri
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Sehrim.html" class="nav-link">
+                            <i class="fa-solid fa-city"></i>  Şehrim
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Miras.html" class="nav-link">
+                            <i class="fa-solid fa-landmark-dome"></i>  Mirasımız
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link">
+                            <i class="fa-solid fa-basketball"></i>  İlgi Alanlarım
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="iletisim.html" class="nav-link">
+                            <i class="fa-solid fa-phone"></i>  İletişim
+                        </a>
+                    </li>
+                </ul>
+                <form class="d-flex mx-4">
+                    <a class="btn btn-danger"
+                       href="http://localhost/PHP/WEB%20Proje/index2.php">Login</a>
+                </form>
+            </div>
+        </div>
+
+        <div class="formDiv row bg-white p-5">
+
+            <form name="control" onsubmit="controlForm()" method="post" class="col-6">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">İsim</label>
+                    <span class="form-required" style="color: red">*</span>
+                    <input type="text"
+                           class="form-control"
+                           placeholder="Adınız"
+                           style="margin-bottom: 10px"
+                           name="isim" />
+                    <input type="text"
+                           class="form-control"
+                           placeholder="Soyadınız"
+                           name="soyad" />
+                </div>
+
+                <div>
+                    <label for="exampleInputEmail1" class="form-label">E-Mail</label>
+                    <span class="form-required" style="color: red">*</span>
+                    <input type="text"
+                           class="form-control"
+                           id="exampleInputEmail1"
+                           aria-describedby="emailHelp"
+                           onkeyup="check()"
+                           name="mail" />
+                </div>
+                <p id="Text"><i class="fa" aria-hidden="true"></i></p>
+
+
+
+                <div class="mb-3 ">
+                    <label for="exampleFormControlTextarea1" class="form-label">Mesajınız</label>
+                    <span class="form-required" style="color: red">*</span>
+
+                    <textarea class="form-control"
+                              id="exampleFormControlTextarea1"
+                              rows="6"
+                              cols="40"
+                              name="message" ;></textarea>
+                </div>
+
+                <a class="btn btn-success" type="submit" onclick="controlForm()" id="navigate">Gönder</a>
+
+
+                <button type="reset" class="btn btn-warning">Temizle</button>
+            </form>
+
+
+        </div>
+
+        <div class="footer bg-dark text-white text-center p-4 ">
+            <footer>
+            </footer>
+        </div>
+
+    </div>
+
+    <script>
+        function controlForm() {
+            var x = document.forms["control"]["isim"].value;
+            var y = document.forms["control"]["soyad"].value;
+            var z = document.forms["control"]["mail"].value;
+            var p = document.forms["control"]["message"].value;
+            if (x == "" && y == "" && z == "" && p == "") {
+                alert("Doldurulması Zorunlu olan alanlar boş bırakılamaz!");
+            }
+            else {
+                if (x == "" || y == "") {
+                    alert("İsim ve Soyisim boş bırakılamaz");
+                    return false;
+                }
+                if (z == "") {
+                    alert("E-Mail boş bırakılamaz");
+                    return false;
+                }
+                if (p == "") {
+                    alert("Mesaj kutusu boş bırakılamaz");
+                }
+            }
+            if (x != "" && y != "" && z != "" && p != "") {
+                saveStorage();
+                var a = document.getElementById('navigate');
+                a.href = "feedback.html";
+
+            }
+
+
+        }
+
+        function check() {
+            var EMail = document.getElementById("exampleInputEmail1").value;
+            var Control = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,4}$/
+            var text = document.getElementById("Text");
+            var icon = document.querySelector(".fa");
+            if (EMail.match(Control)) {
+                //  icon.classList.add("fa-check");
+                text.innerHTML = "E-Mail Adresiniz Geçerli";
+
+            } else {
+
+                text.innerHTML = "Lütfen Geçerli Bir E-Mail Adresi Giriniz";
+
+            }
+
+        }
+        function saveStorage() {
+            var x = document.forms["control"]["isim"].value;
+            var y = document.forms["control"]["soyad"].value;
+            var z = document.forms["control"]["mail"].value;
+            var p = document.forms["control"]["message"].value;
+
+            sessionStorage.setItem('name', x);
+            sessionStorage.setItem('surname', y);
+            sessionStorage.setItem('Mail', z);
+            sessionStorage.setItem('Message', p);
+            // for(let i=0;i<sessionStorage.length;i++){
+            //   const key=sessionStorage.key(i);
+            // }
+
+        }
+
+
+    </script>
+
+</body>
+</html>
